@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from "./form"
 
@@ -24,35 +24,55 @@ import Form from "./form"
 // }
 
 function App(){
-    // const [value,setValue] = useState("");
-    const [list,setList] = useState([{val:"Auxenta"}]);
+    const [value,setValue] = useState("");
+    const [list,setList] = useState([{val:"Auxenta"},{val:7},{val:"Ashan"}]);
 
-    // function handleChange(event){
-    //   setValue(event.target.value);
-    // }
+    function handleChange(event){
+      setValue(event.target.value);
+      console.log(value);
+    }
     // function handleSubmit(event){
     //   alert("Value : "+value)
     //   event.preventDefault();
       
     // }
     function handleList(event){
-      // setList({val:event.target.value});
-      alert(event.target.value)
+      setList([{val:value},...list]);
+      // alert(event.target.value)
       event.preventDefault();
+      console.log(list);
     }
+    
+    // function showValues(event){
+    //   return (<ul>
+    //     {list.map((item) => {
+    //       return <li key={list.indexOf(item.val)}>{item.val}</li>;
+    //     })}
+    //   </ul> )
+    // }
     
   
   return(
     <div>
-      <form onSubmit={handleList}>
-        <input placeholder="Enter a value" value={list.val} onChange={handleList}/>
-        <input type="submit" value="submit"/>
+      <form >
+        <input placeholder="Enter a value" onChange={handleChange}/>
+        <input type="submit" value="submit" onClick={handleList}/>
       </form>
   <div>
-    {list.map(item=>(
-      <h2>{item.val}</h2>
-    ))}
-
+    {/* <input type="button" value="Show values" onClick={showValues}/> */}
+  {/* {list.map(item=>{
+       return <h2 key={item.val}>{item.val}</h2>
+      })} */}
+    {/* <ul>
+        {list.map((item) => {
+          return <li>{item.val}</li>;
+        })}
+      </ul> */}
+      <ul>
+        {list.map((item) => {
+          return <li key={list.indexOf(item.val)}>{item.val}</li>;
+        })}
+      </ul>
 
   </div>
     </div>
