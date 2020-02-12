@@ -41,6 +41,7 @@ function App(){
       // alert(event.target.value)
       event.preventDefault();
       console.log(list);
+      
     }
     
     // function showValues(event){
@@ -57,17 +58,9 @@ function App(){
       <form >
         <input placeholder="Enter a value" onChange={handleChange}/>
         <input type="submit" value="submit" onClick={handleList}/>
+        <input type="reset" value="Reset"/>
       </form>
   <div>
-    {/* <input type="button" value="Show values" onClick={showValues}/> */}
-  {/* {list.map(item=>{
-       return <h2 key={item.val}>{item.val}</h2>
-      })} */}
-    {/* <ul>
-        {list.map((item) => {
-          return <li>{item.val}</li>;
-        })}
-      </ul> */}
       <ul>
         {list.map((item) => {
           return <li key={list.indexOf(item.val)}>{item.val}</li>;
