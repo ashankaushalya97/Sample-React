@@ -4,26 +4,7 @@ import Form from "./form"
 import { render } from '@testing-library/react';
 import { renderIntoDocument } from 'react-dom/test-utils';
 
-// function App() {
-//   const [todo,setValue] = useState([]);
- 
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-        
-//         <Form
-//           onSubmit={text => setValue([{text,complete:false}, ...todo])}
-//         />
 
-//         <div>
-//           {todo.map(({text})=> (
-//             <div key={text}>{text}</div>
-//           ))}
-//         </div>
-//       </header>
-//     </div>
-//   );
-// }
 
 function App(){
     const [value,setValue] = useState("");
@@ -33,11 +14,7 @@ function App(){
       setValue(event.target.value);
       console.log(value);
     }
-    // function handleSubmit(event){
-    //   alert("Value : "+value)
-    //   event.preventDefault();
-      
-    // }
+  
     function handleList(event){
       setList([{val:value},...list]);
       // alert(event.target.value)
@@ -53,18 +30,11 @@ function App(){
       console.log(list)
       setValue({list:list})
     }
-    
-    // function showValues(event){
-    //   return (<ul>
-    //     {list.map((item) => {
-    //       return <li key={list.indexOf(item.val)}>{item.val}</li>;
-    //     })}
-    //   </ul> )
-    // }
-    
+   
   
   return(
     <div>
+      <div><h1>To Do List</h1></div>
       <form >
         <input placeholder="Enter a value" onChange={handleChange}/>
         <input type="submit" value="submit" onClick={handleList}/>
